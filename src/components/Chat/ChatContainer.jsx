@@ -3,7 +3,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import Message from './Message';
 import InputBar from './InputBar';
 import './ChatContainer.css';
-import Celebration from './Celebration';
 
 function ChatContainer() {
   // Messages state
@@ -15,6 +14,9 @@ function ChatContainer() {
       sender: 'bot' 
     }
   ]);
+  
+  // Loading state for waiting on API
+  const [isLoading, setIsLoading] = useState(false);
   
   // Reference for auto-scrolling
   const messagesEndRef = useRef(null);
@@ -36,41 +38,69 @@ function ChatContainer() {
     };
     
     setMessages(prev => [...prev, newUserMessage]);
+    setIsLoading(true);
     
-    // In a real app, you'd call your API here
-    // For the hackathon demo, we can simulate the response
-    setTimeout(() => {
-      // Simulate bot response based on user input
-      let botResponse;
+    try {
+      // Call the API
+      const response = await fetch('http://127.0.0.1:5000/api/chat', { // to be edited
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: text,
+          user_id: 'demo-user-123' 
+        }),
+      });
       
-      // Demo response logic
-      if (text.toLowerCase().includes('party') || text.toLowerCase().includes('drink')) {
-        // User is worried about a drinking situation
-        botResponse = {
+      const data = await response.json();
+      console.log(data);
+      
+      if (data.status === 'success') {
+        // Parse the response to determine if it contains special content
+        let specialType = null;
+        
+        // Simple detection of special content based on keywords in the response
+        // In a real app, the backend would provide structured data
+        if (data.response.includes('tips') || data.response.includes('Tips')) {
+          specialType = 'tips';
+        } else if (data.response.includes('days') && (data.response.includes('sober') || data.response.includes('goal'))) {
+          specialType = 'celebration';
+        }
+        
+        // Add bot response to the chat
+        const botResponse = {
           id: Date.now() + 1,
-          text: 'Social events can be tricky. Would you like some tips for how to say "no" if someone offers you a drink?',
+          text: data.response,
           sender: 'bot',
-          specialType: 'tips'
+          specialType
         };
-      } else if (text.toLowerCase().includes('good') || text.toLowerCase().includes('sober')) {
-        // User has maintained sobriety
-        botResponse = {
-          id: Date.now() + 1,
-          text: "That's great to hear! You maintained the record for 5 days. Stay sober 3 more days until you reach your goal!",
-          sender: 'bot',
-          specialType: 'celebration'
-        };
+        
+        setMessages(prev => [...prev, botResponse]);
       } else {
-        // Default response
-        botResponse = {
+        // Handle error response
+        const errorResponse = {
           id: Date.now() + 1,
-          text: "Thank you for sharing. How are you feeling about your progress today?",
+          text: "Sorry, I'm having trouble connecting right now. Please try again later.",
           sender: 'bot'
         };
+        
+        setMessages(prev => [...prev, errorResponse]);
       }
+    } catch (error) {
+      console.error('Error calling chat API:', error);
       
-      setMessages(prev => [...prev, botResponse]);
-    }, 1000); // Simulate API delay
+      // Add error message to chat
+      const errorResponse = {
+        id: Date.now() + 1,
+        text: "Sorry, I'm having trouble connecting right now. Please try again later.",
+        sender: 'bot'
+      };
+      
+      setMessages(prev => [...prev, errorResponse]);
+    } finally {
+      setIsLoading(false);
+    }
   };
   
   return (
@@ -84,9 +114,21 @@ function ChatContainer() {
             specialType={message.specialType}
           />
         ))}
+        
+        {isLoading && (
+          <div className="message bot">
+            <div className="message-bubble typing">
+              <span className="dot"></span>
+              <span className="dot"></span>
+              <span className="dot"></span>
+            </div>
+          </div>
+        )}
+        
         <div ref={messagesEndRef} />
       </div>
-      <InputBar onSendMessage={handleSendMessage} />
+      
+      <InputBar onSendMessage={handleSendMessage} disabled={isLoading} />
     </div>
   );
 }

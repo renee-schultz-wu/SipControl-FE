@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import './InputBar.css';
 
-function InputBar({ onSendMessage }) {
+function InputBar({ onSendMessage, disabled }) {
   const [message, setMessage] = useState('');
   
   const handleSubmit = (e) => {
@@ -15,7 +15,11 @@ function InputBar({ onSendMessage }) {
   
   return (
     <form className="input-bar" onSubmit={handleSubmit}>
-      <button type="button" className="voice-button">
+        <button 
+            type="button" 
+            className="voice-button"
+            disabled={disabled}
+        >
         <span role="img" aria-label="microphone">🎤</span>
       </button>
       <input
@@ -24,8 +28,9 @@ function InputBar({ onSendMessage }) {
         onChange={(e) => setMessage(e.target.value)}
         placeholder="Send a message ..."
         className="message-input"
+        disabled={disabled}
       />
-      <button type="submit" className="send-button">
+      <button type="submit" className="send-button" disabled={disabled}>
         <span role="img" aria-label="send">📤</span>
       </button>
     </form>
