@@ -4,22 +4,27 @@
     align-items: center;
     padding: 10px 15px;
     background-color: #fff;
-    border-top: 1px solid #e0e0e0;
   }
+
+form {
+    border: #fff 2px solid;
+    border-radius: 40px;
+    margin: 10px;
+    margin-bottom: 40px;
+}
   
-  .message-input {
+.message-input {
     flex: 1;
     padding: 10px 15px;
     border: none;
     border-radius: 20px;
-    background-color: #f0f0f0;
+    background-color: #fff;
     font-size: 16px;
     margin: 0 10px;
   }
   
   .message-input:focus {
     outline: none;
-    background-color: #e8e8e8;
   }
   
   .voice-button, .send-button {
@@ -27,13 +32,14 @@
     border: none;
     font-size: 20px;
     cursor: pointer;
-    color: #75a99c; /* Teal */
+    /* color: #75a99c;  Teal */
     width: 40px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1;
+    color:#333;
   }
 
 input {
@@ -47,8 +53,8 @@ input {
   cursor: not-allowed;
 }
 
-input:focus {
-    border: #d5e8e3 3px solid;
+form:hover {
+    border: #d5e8e3 2px solid;
 }
 
 .input-icon-mic {
