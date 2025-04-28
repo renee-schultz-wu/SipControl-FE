@@ -1,5 +1,11 @@
 # SipControl App Documentation
 
+## 0. How to run
+```Terminal
+npm install
+npm run dev
+```
+
 ## 1. Application Overview
 
 SipControl is a mobile-friendly web application designed to help users manage their alcohol consumption. The app provides supportive chat interactions in two modes: "Sober" for those maintaining sobriety, and "Drink" for those who need support while consuming alcohol. The application features user authentication, personalized onboarding, a dashboard with progress tracking, and an AI-powered chat interface.
