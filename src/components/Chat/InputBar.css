@@ -33,8 +33,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
   }
 
 input {
     color: #333;
+}
+
+.message-input:disabled,
+.voice-button:disabled,
+.send-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+input:focus {
+    border: #d5e8e3 3px solid;
+}
+
+.input-icon-mic {
+    z-index: 2;
 }

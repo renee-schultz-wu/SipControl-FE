@@ -93,10 +93,3 @@
     }
   }
   
-  /* Add this to InputBar.css */
-  .message-input:disabled,
-  .voice-button:disabled,
-  .send-button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }

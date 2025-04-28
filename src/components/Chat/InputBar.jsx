@@ -1,5 +1,5 @@
-// src/components/Chat/InputBar.jsx
 import React, { useState } from 'react';
+import { Mic, Send } from 'lucide-react';
 import './InputBar.css';
 
 function InputBar({ onSendMessage, disabled }) {
@@ -19,8 +19,12 @@ function InputBar({ onSendMessage, disabled }) {
             type="button" 
             className="voice-button"
             disabled={disabled}
+            aria-label='voice-button'
         >
-        <span role="img" aria-label="microphone">🎤</span>
+            <div>
+                <Mic className='input-icon-mic' size={24} strokeWidth={2}/>
+            </div>
+        
       </button>
       <input
         type="text"
@@ -31,7 +35,9 @@ function InputBar({ onSendMessage, disabled }) {
         disabled={disabled}
       />
       <button type="submit" className="send-button" disabled={disabled}>
-        <span role="img" aria-label="send">📤</span>
+        <div>
+            <Send />
+        </div>
       </button>
     </form>
   );
