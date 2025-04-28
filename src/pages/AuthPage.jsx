@@ -4,6 +4,8 @@ import { UserContext } from '../context/UserContext';
 import LoginForm from '../components/Auth/LoginForm';
 import SignupForm from '../components/Auth/SignupForm';
 
+import '../styles/AuthPage.css'
+
 function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
   const { login } = useContext(UserContext);

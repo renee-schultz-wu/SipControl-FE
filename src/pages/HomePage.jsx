@@ -9,16 +9,12 @@ import MoodTracker from '../components/Home/MoodTracker';
 import '../styles/HomePage.css'
 
 function HomePage() {
-  //const { user, logout } = useContext(UserContext);
-  //const navigate = useNavigate();
+  const { user, logout } = useContext(UserContext);
+  const navigate = useNavigate();
   
   // Mock data for hackathon
   const savedAmount = 265; // dollars
   const drinkReduction = 30; // percent
-
-  const user = {
-    name: "Yolanda",
-  }
   
   return (
     <div className="home-page">
@@ -72,7 +68,7 @@ function HomePage() {
         
         <div className="chat-button-container">
           <button 
-            //onClick={() => navigate('/chat')}
+            onClick={() => navigate('/chat')}
             className="chat-button"
           >
             Chat with SipControl

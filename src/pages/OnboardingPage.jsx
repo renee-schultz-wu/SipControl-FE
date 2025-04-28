@@ -7,11 +7,13 @@ import SurveyQuestion from '../components/Onboarding/SurveyQuestion';
 import SurveyNavigation from '../components/Onboarding/SurveyNavigation';
 import SurveyProgress from '../components/Onboarding/SurveyProgress';
 
+import '../components/Onboarding/Survey.css';
+
 function OnboardingPage() {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({});
-  //const { updateUser } = useContext(UserContext);
-  //const navigate = useNavigate();
+  const { updateUser } = useContext(UserContext);
+  const navigate = useNavigate();
   
   // Define survey questions based on your Figma screens
   const questions = [
@@ -103,10 +105,10 @@ function OnboardingPage() {
     };
     
     // Update user context with onboarding data
-    //updateUser(onboardingData);
+    updateUser(onboardingData);
     
     // Navigate to home page
-    //navigate('/home');
+    navigate('/home');
   };
   
   const currentQuestion = questions[currentStep];

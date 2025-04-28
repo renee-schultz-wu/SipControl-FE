@@ -1,16 +1,20 @@
 // src/components/Chat/ChatContainer.jsx
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
+
 import Message from './Message';
 import InputBar from './InputBar';
 import './ChatContainer.css';
 
 function ChatContainer() {
   // Messages state
+  const { user } = useContext(UserContext);
+
   const [messages, setMessages] = useState([
     // Initial welcome message
     { 
       id: 1, 
-      text: 'Good morning Yolanda! How did you sleep last night? Any cravings or challenges so far today?', 
+      text: `Good morning ${user?.name || 'there'}! How did you sleep last night? Any cravings or challenges so far today?`, 
       sender: 'bot' 
     }
   ]);
