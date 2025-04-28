@@ -1,6 +1,6 @@
 // src/pages/ChatPage.jsx
 import ChatContainer from '../components/Chat/ChatContainer';
-import './ChatPage.css'; 
+import '../styles/ChatPage.css'; 
 
 function ChatPage() {
   return (

@@ -28,5 +28,6 @@ body {
       max-height: 100vh;
       border-radius: 0;
       box-shadow: none;
+      min-width: 430px;
     }
   }

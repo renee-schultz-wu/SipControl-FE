@@ -35,6 +35,7 @@ function SignupForm({ onSignupSuccess }) {
       onSignupSuccess(userData);
     } catch (err) {
       setError('Something went wrong. Please try again.');
+        console.error(err);
     } finally {
       setIsLoading(false);
     }

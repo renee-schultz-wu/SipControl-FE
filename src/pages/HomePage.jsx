@@ -6,7 +6,7 @@ import DailyStats from '../components/Home/DailyStats';
 import GoalProgress from '../components/Home/GoalProgress';
 import MoodTracker from '../components/Home/MoodTracker';
 
-import './HomePage.css'
+import '../styles/HomePage.css'
 
 function HomePage() {
   //const { user, logout } = useContext(UserContext);
