@@ -18,25 +18,27 @@
 
 .message.user {
     align-items: flex-end;
+    text-align: left;
 }
   
 .message.bot {
     align-items: flex-start;
 }
   
-  .message-bubble {
-    max-width: 80%;
+.message-bubble {
     padding: 12px 15px;
     border-radius: 18px;
     font-size: 16px;
     line-height: 1.4;
-  }
+}
   
   .user .message-bubble {
     background-color: #d5e8e3; /* Light teal */
     color: #333;
     border-bottom-right-radius: 5px;
     margin-right: 10px;
+    text-align: left;
+    max-width: 75%;
   }
   
   .bot .message-bubble {
@@ -45,6 +47,7 @@
     border-bottom-left-radius: 5px;
     width: 75%;
     text-align: left;
+    
   }
   
   .user-avatar {
@@ -56,9 +59,12 @@
     background-size: cover;
   }
 
-.message-avatar {
+.message-avatar.user {
     flex-direction: row;
     display: flex;
+    justify-content: right;
+    max-width: 90%;
+    align-items: self-start;
 }
 
 .typing {
