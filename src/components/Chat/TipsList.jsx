@@ -48,7 +48,7 @@ function TipsList() {
       <div className="resources-link">
         <p>Looking for more tips? Check the sources below:</p>
         <div className="video-link">
-          <img src="https://via.placeholder.com/320x180" alt="Video thumbnail" />
+          <img src="https://www.youtube.com/watch?v=IstU4uhe6fQ" alt="Video thumbnail" />
           <p>7 Ways to say no to a drink</p>
         </div>
       </div>

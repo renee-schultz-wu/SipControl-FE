@@ -1,11 +1,13 @@
 /* src/components/Chat/TipsList.css */
 .tips-list {
-    width: 100%;
+    width: 70%;
     margin-top: 15px;
     background-color: #f9f0d9;
     border-radius: 12px;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+    text-align: left;
   }
   
   .tips-list h3 {

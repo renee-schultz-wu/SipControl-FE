@@ -7,15 +7,15 @@ import './Message.css';
 function Message({ text, sender, specialType }) {
   return (
     <div className={`message ${sender}`}>
-      <div className="message-bubble">
+        <div className='message-avatar'>
+        <div className="message-bubble">
         {text}
-      </div>
+        </div>
+        {sender === 'user' && <div className="user-avatar"></div>}
+        </div>
       
-      {sender === 'user' && <div className="user-avatar"></div>}
-      
-      {/* Render special content based on type */}
-      {specialType === 'tips' && <TipsList />}
-      {specialType === 'celebration' && <Celebration />}
+        {specialType === 'tips' && <TipsList />}
+        {specialType === 'celebration' && <Celebration />}
     </div>
   );
 }

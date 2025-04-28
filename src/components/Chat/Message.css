@@ -3,15 +3,26 @@
     display: flex;
     margin-bottom: 15px;
     align-items: flex-end;
+    flex-direction: column;
   }
   
-  .message.user {
+/*
+.message.user {
     justify-content: flex-end;
-  }
+}
   
-  .message.bot {
+.message.bot {
     justify-content: flex-start;
-  }
+}
+*/
+
+.message.user {
+    align-items: flex-end;
+}
+  
+.message.bot {
+    align-items: flex-start;
+}
   
   .message-bubble {
     max-width: 70%;
@@ -32,6 +43,7 @@
     background-color: #f9f0d9; /* Light cream */
     color: #333;
     border-bottom-left-radius: 5px;
+    width: 60%;
   }
   
   .user-avatar {
@@ -42,3 +54,8 @@
     background-image: url('https://via.placeholder.com/35');
     background-size: cover;
   }
+
+.message-avatar {
+    flex-direction: row;
+    display: flex;
+}
