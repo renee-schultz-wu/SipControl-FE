@@ -1,0 +1,44 @@
+/* src/components/Chat/Message.css */
+.message {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: flex-end;
+  }
+  
+  .message.user {
+    justify-content: flex-end;
+  }
+  
+  .message.bot {
+    justify-content: flex-start;
+  }
+  
+  .message-bubble {
+    max-width: 70%;
+    padding: 12px 15px;
+    border-radius: 18px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  
+  .user .message-bubble {
+    background-color: #d5e8e3; /* Light teal */
+    color: #333;
+    border-bottom-right-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .bot .message-bubble {
+    background-color: #f9f0d9; /* Light cream */
+    color: #333;
+    border-bottom-left-radius: 5px;
+  }
+  
+  .user-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #ccc;
+    background-image: url('https://via.placeholder.com/35');
+    background-size: cover;
+  }
