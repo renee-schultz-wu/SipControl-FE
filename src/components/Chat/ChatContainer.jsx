@@ -86,7 +86,6 @@ function ChatContainer() {
         ))}
         <div ref={messagesEndRef} />
       </div>
-      <Celebration />
       <InputBar onSendMessage={handleSendMessage} />
     </div>
   );
