@@ -43,9 +43,8 @@ function SignupForm({ onSignupSuccess }) {
 
   return (
     <form className="auth-form" onSubmit={handleSubmit}>
-      <div className="auth-logo">SipControl</div>
+      <div className="auth-logo">Sign up</div>
       
-      <h2 className="auth-title">Sign Up</h2>
       
       {error && <div className="auth-error">{error}</div>}
       

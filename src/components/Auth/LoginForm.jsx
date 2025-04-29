@@ -37,9 +37,8 @@ function LoginForm({ onLoginSuccess }) {
 
   return (
     <form className="auth-form" onSubmit={handleSubmit}>
-      <div className="auth-logo">SipControl</div>
+      <div className="auth-logo">Login</div>
       
-      <h2 className="auth-title">Login</h2>
       
       {error && <div className="auth-error">{error}</div>}
       

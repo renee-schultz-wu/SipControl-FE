@@ -66,7 +66,7 @@ function HomePage() {
         </section>
         
         <section className="progress-section">
-          <GoalProgress 
+        <GoalProgress 
             current={user?.soberDays || 5} 
             target={user?.targetDays || 30} 
           />
