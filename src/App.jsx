@@ -89,11 +89,14 @@ function AppRoutes() {
 
 function App() {
   return (
-    <UserProvider>
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
-    </UserProvider>
+    <div className="App">
+        <UserProvider>
+            <BrowserRouter>
+                <AppRoutes />
+            </BrowserRouter>
+        </UserProvider>    
+    </div>
+    
   );
 }
 

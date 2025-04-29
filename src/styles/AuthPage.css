@@ -1,17 +1,5 @@
 /* src/styles/Auth.css */
 
-:root {
-    --primary-color: #82BEC0; /* Teal blue color from your palette */
-    --secondary-color: #F8E3BA; /* Light yellow from your palette */
-    --accent-color: #E9B87F; /* Orange accent from your palette */
-    --light-bg: #F5F6F8; /* Light background color */
-    --white: #FFFFFF;
-    --dark-text: #333333;
-    --gray-text: #666666;
-    --border-radius: 12px;
-    --error-color: #E57373;
-  }
-  
   .auth-page {
     min-height: 100vh;
     display: flex;

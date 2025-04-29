@@ -15,6 +15,10 @@ function HomePage() {
   // Mock data for hackathon
   const savedAmount = 265; // dollars
   const drinkReduction = 30; // percent
+
+  const handleLogout = () => {
+        logout();
+  };
   
   return (
     <div className="home-page">
@@ -27,14 +31,20 @@ function HomePage() {
           </div>
         </div>
         
-        <div className="mode-selector">
-          <button className="mode-button active">
-            Sober
+        <div className="chat-button-container">
+          <button 
+            onClick={() => navigate('/chat')}
+            className="chat-button"
+          >
+            Chat with SipControl
           </button>
-          <button className="mode-button" onClick={() => navigate('/chat/drink')}>
-            Drink
-          </button>
+          <button onClick={handleLogout}>
+        Logout
+        </button>
         </div>
+  
+        
+
       </header>
       
       <main className="home-content">
@@ -66,14 +76,7 @@ function HomePage() {
           <MoodTracker />
         </section>
         
-        <div className="chat-button-container">
-          <button 
-            onClick={() => navigate('/chat')}
-            className="chat-button"
-          >
-            Chat with SipControl
-          </button>
-        </div>
+        
       </main>
     </div>
   );
